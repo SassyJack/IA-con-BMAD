@@ -1,0 +1,42 @@
+{
+    "@@locale": "es",
+    "counterAppBarTitle": "Contador",
+    "@counterAppBarTitle": {
+        "description": "Texto mostrado en la AppBar de la página del contador"
+    },
+    "petCustomizationTitle": "¡Hola! Soy tu mascota.",
+    "petCustomizationSubtitle": "Me gustaría que me pusieras un nombre para que podamos empezar nuestro viaje juntos.",
+    "petNameLabel": "Nombre de tu mascota",
+    "petNameError": "El nombre debe tener entre 2 y 20 caracteres",
+    "petGenderLabel": "Género",
+    "petGenderMale": "Masculino",
+    "petGenderFemale": "Femenino",
+    "petGenderNeutral": "Neutro",
+    "petCustomizationSubmit": "Comenzar Acompañamiento",
+    "phq9Question1": "Poco interés o placer en hacer las cosas",
+    "phq9Question2": "Sentirse decaído/a, deprimido/a o sin esperanzas",
+    "phq9Question3": "Dificultad para dormir o permanecer dormido/a, o dormir demasiado",
+    "phq9Question4": "Sentirse cansado/a o con poca energía",
+    "phq9Question5": "Poco apetito o comer en exceso",
+    "phq9Question6": "Sentirse mal consigo mismo/a — o que es un fracaso o que ha decepcionado a su familia o a sí mismo/a",
+    "phq9Question7": "Dificultad para concentrarse en las cosas, como leer el periódico o ver la televisión",
+    "phq9Question8": "Moverse o hablar tan lentamente que otras personas podrían haberlo notado. O lo contrario — estar tan inquieto/a o agitado/a que se ha estado moviendo mucho más de lo normal",
+    "phq9Question9": "Pensamientos de que estaría mejor muerto/a o de lastimarse a sí mismo/a de alguna manera",
+    "phq9Option0": "Para nada",
+    "phq9Option1": "Varios días",
+    "phq9Option2": "Más de la mitad de los días",
+    "phq9Option3": "Casi todos los días",
+    "phq9Submit": "Finalizar Test",
+    "welcomeDialogue1": "¡Hola! Gracias por confiar en mí. Me llamo {name} y estaré aquí para acompañarte.",
+    "@welcomeDialogue1": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "welcomeDialogue2": "Mi objetivo es ser tu refugio visual. Juntos aprenderemos a entender tus emociones mejor.",
+    "welcomeDialogue3": "¡Empecemos! Exploremos tu nuevo hábitat.",
+    "welcomeNext": "Continuar",
+    "welcomeFinish": "Entrar al Hábitat"
+}

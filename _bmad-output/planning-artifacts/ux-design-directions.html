@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direcciones de Diseño - Serenti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul-serenti: #A3C4F3;
+            --verde-menta: #BEE1E6;
+            --lavanda: #E2ECE9;
+            --crema: #F8F9FA;
+            --ocre-suave: #FDE4CF;
+            --coral-suave: #F0E6EF;
+            --texto: #4A4E69;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #E2ECE9;
+            color: var(--texto);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 { color: #222; margin-bottom: 30px; }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .mockup {
+            background-color: var(--crema);
+            border-radius: 40px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            aspect-ratio: 9/19;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            border: 8px solid #333;
+        }
+
+        .status-bar { height: 20px; display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 20px; }
+
+        .title { font-weight: 700; font-size: 1.2rem; text-align: center; margin-bottom: 10px; }
+
+        /* Dirección 1: Minimalismo Zen */
+        .zen { background-color: #fff; }
+        .zen .pet { width: 120px; height: 120px; background: var(--azul-serenti); border-radius: 50%; margin: 60px auto; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+        .zen .message { text-align: center; padding: 20px; font-style: italic; }
+
+        /* Dirección 2: Entorno Orgánico */
+        .organic { background: linear-gradient(180deg, var(--azul-serenti) 0%, var(--verde-menta) 100%); }
+        .organic .pet { width: 140px; height: 140px; background: #fff; border-radius: 50% 50% 40% 40%; margin: 80px auto; position: relative; display: flex; align-items: center; justify-content: center; font-size: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .organic .ground { position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: rgba(255,255,255,0.3); border-radius: 50% 50% 0 0; }
+
+        /* Dirección 3: Dashboard Amigable */
+        .dashboard { background-color: var(--lavanda); }
+        .card { background: #fff; border-radius: 24px; padding: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .dashboard .pet-card { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 60px; }
+
+        .label { position: absolute; bottom: 20px; width: 100%; text-align: center; font-weight: 700; background: rgba(0,0,0,0.7); color: #fff; padding: 5px 0; left: 0; }
+
+        .description { margin-top: 10px; font-size: 0.9rem; text-align: center; padding: 0 10px; }
+
+    </style>
+</head>
+<body>
+
+    <h1>Direcciones de Diseño - Serenti</h1>
+
+    <div class="container">
+        <!-- Mockup 1 -->
+        <div>
+            <div class="mockup zen">
+                <div class="status-bar"><span>9:41</span><span>🔋</span></div>
+                <div class="title">Hola, Ramón</div>
+                <div class="pet">✨</div>
+                <div class="message">"Hoy el cielo está despejado, igual que tu calma."</div>
+                <div class="label">1. Minimalismo Zen</div>
+            </div>
+            <div class="description">Foco absoluto en la mascota y el mensaje. Máximo aire visual.</div>
+        </div>
+
+        <!-- Mockup 2 -->
+        <div>
+            <div class="mockup organic">
+                <div class="status-bar"><span>9:41</span><span>🔋</span></div>
+                <div class="pet">🐾</div>
+                <div class="ground"></div>
+                <div class="label">2. Entorno Orgánico</div>
+            </div>
+            <div class="description">Inmersión emocional. El fondo cambia con tu energía.</div>
+        </div>
+
+        <!-- Mockup 3 -->
+        <div>
+            <div class="mockup dashboard">
+                <div class="status-bar"><span>9:41</span><span>🔋</span></div>
+                <div class="card pet-card">🐶</div>
+                <div class="card"><strong>Tu descanso:</strong> 8h 20m</div>
+                <div class="card"><strong>Actividad:</strong> Moderada</div>
+                <div class="label">3. Dashboard Amigable</div>
+            </div>
+            <div class="description">Información contenida y segura. Sensación de control.</div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+# generated: 2026-04-09 12:00:00
+# last_updated: 2026-04-09 12:00:00
+# project: Serenti
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: {project-root}/_bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+
+generated: 2026-04-09 12:00:00
+last_updated: 2026-04-13 10:00:00
+project: Serenti
+project_key: NOKEY
+tracking_system: file-system
+story_location: {project-root}/_bmad-output/implementation-artifacts
+
+development_status:
+  epic-1: done
+  1-0-inicializacion-del-proyecto-con-very-good-cli: done
+  1-1-consentimiento-informado-y-setup-de-persistencia: done
+  1-2-configuracion-de-seguridad-personalizada: done
+  1-3-bloqueo-automatico-de-sesion: done
+  1-4-onboarding-agil-y-flexible: done
+  epic-1-retrospective: optional
+
+  epic-2: done
+  2-1-bautizo-y-personalizacion-de-milo: done
+  2-2-test-phq-9-inicial-con-sliders-empaticos: done
+  2-3-bienvenida-y-primer-dialogo: done
+  epic-2-retrospective: optional
+
+  epic-3: done
+  3-1-recoleccion-pasiva-y-sigilosa-de-metadatos: done
+  3-2-inferencia-local-mlp-edge-ai: done
+  3-3-calibracion-de-linea-base-periodo-de-gracia: done
+  epic-3-retrospective: optional
+
+  epic-4: done
+  4-1-visualizacion-del-habitat-organico-dinamico: done
+  4-2-estados-de-animo-de-milo-reflejo-emocional: done
+  4-3-gestion-de-notificaciones-intensidad-de-acompanamiento: done
+  4-4-modo-oscuro-noche-de-calma: done
+  epic-4-retrospective: optional
+
+  epic-5: done
+  5-1-activacion-de-alerta-de-riesgo: done
+  5-2-boton-de-ayuda-inmediata-persistente: done
+  5-3-dashboard-de-crisis-offline: done
+  epic-5-retrospective: optional

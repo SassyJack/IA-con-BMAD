@@ -1,0 +1,42 @@
+{
+    "@@locale": "en",
+    "counterAppBarTitle": "Counter",
+    "@counterAppBarTitle": {
+        "description": "Text shown in the AppBar of the Counter Page"
+    },
+    "petCustomizationTitle": "Hello! I'm your pet.",
+    "petCustomizationSubtitle": "I'd like you to give me a name so we can start our journey together.",
+    "petNameLabel": "Pet's Name",
+    "petNameError": "Name must be between 2 and 20 characters",
+    "petGenderLabel": "Gender",
+    "petGenderMale": "Male",
+    "petGenderFemale": "Female",
+    "petGenderNeutral": "Neutral",
+    "petCustomizationSubmit": "Start Accompaniment",
+    "phq9Question1": "Little interest or pleasure in doing things",
+    "phq9Question2": "Feeling down, depressed, or hopeless",
+    "phq9Question3": "Trouble falling or staying asleep, or sleeping too much",
+    "phq9Question4": "Feeling tired or having little energy",
+    "phq9Question5": "Poor appetite or overeating",
+    "phq9Question6": "Feeling bad about yourself — or that you are a failure or have let yourself or your family down",
+    "phq9Question7": "Trouble concentrating on things, such as reading the newspaper or watching television",
+    "phq9Question8": "Moving or speaking so slowly that other people could have noticed? Or the opposite — being so fidgety or restless that you have been moving around a lot more than usual",
+    "phq9Question9": "Thoughts that you would be better off dead or of hurting yourself in some way",
+    "phq9Option0": "Not at all",
+    "phq9Option1": "Several days",
+    "phq9Option2": "More than half the days",
+    "phq9Option3": "Nearly every day",
+    "phq9Submit": "Finish Test",
+    "welcomeDialogue1": "Hello! Thanks for trusting me. My name is {name} and I'll be here to accompany you.",
+    "@welcomeDialogue1": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "welcomeDialogue2": "My goal is to be your visual shelter. Together we will learn to understand your emotions better.",
+    "welcomeDialogue3": "Let's start! Let's explore your new habitat.",
+    "welcomeNext": "Continue",
+    "welcomeFinish": "Enter Habitat"
+}

@@ -1,0 +1,18 @@
+name: sensor_kit
+description: Sensor Kit package for passive data collection
+version: 0.1.0+1
+publish_to: none
+
+environment:
+  sdk: ^3.11.0
+  flutter: ">=3.41.0"
+
+dependencies:
+  geolocator: ^13.0.1
+  pedometer: ^4.0.1
+  phone_state: ^3.0.1
+
+dev_dependencies:
+  mocktail: ^1.0.4
+  test: ^1.31.0
+  very_good_analysis: ^10.2.0
