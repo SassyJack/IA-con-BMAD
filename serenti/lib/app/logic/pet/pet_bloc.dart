@@ -21,11 +21,31 @@ class PetBloc extends Bloc<PetEvent, PetState> {
     on<LoadPetProfile>(_onLoadProfile);
     on<PetMoodUpdated>(_onMoodUpdated);
     on<PetWatchMoodChanges>(_onWatchMoodChanges);
+    on<PetInteracted>(_onInteracted);
   }
 
   final PetRepository _petRepository;
   final IsarDatabase _isarDatabase;
   StreamSubscription? _moodSubscription;
+  Timer? _interactionTimer;
+
+  void _onInteracted(
+    PetInteracted event,
+    Emitter<PetState> emit,
+  ) {
+    _interactionTimer?.cancel();
+    final previousMood = state.currentMood;
+    
+    // Temporarily set mood to joy for interaction feedback
+    emit(state.copyWith(currentMood: MiloMood.joy));
+    
+    // Revert to previous mood after 3 seconds
+    _interactionTimer = Timer(const Duration(seconds: 3), () {
+      if (!isClosed) {
+        add(PetMoodUpdated(previousMood));
+      }
+    });
+  }
 
   void _onNameChanged(
     PetNameChanged event,

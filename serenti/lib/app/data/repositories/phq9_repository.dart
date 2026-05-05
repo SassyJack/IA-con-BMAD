@@ -40,9 +40,12 @@ class Phq9Repository {
       // Update UserSettings to mark PHQ-9 as completed in onboarding
       final settings = await isar.userSettings.where().findFirst();
       if (settings != null) {
-        settings.pendingSteps.remove('phq9_test');
-        if (settings.pendingSteps.isEmpty) {
-          settings.isOnboardingComplete = true;
+        final updatedSteps = List<String>.from(settings.pendingSteps);
+        if (updatedSteps.remove('phq9_test')) {
+          settings.pendingSteps = updatedSteps;
+          if (settings.pendingSteps.isEmpty) {
+            settings.isOnboardingComplete = true;
+          }
         }
         await isar.userSettings.put(settings);
       }

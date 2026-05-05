@@ -41,11 +41,23 @@ class SecurityBloc extends Bloc<SecurityEvent, SecurityState> {
         return;
       }
 
+      final failedAttempts = await _securityVault.getFailedAttempts();
       final bioEnabled = await _securityVault.isBiometricEnabled();
-      emit(state.copyWith(
-        status: SecurityStatus.unauthenticated,
-        isBiometricEnabled: bioEnabled,
-      ));
+
+      if (failedAttempts >= 5) {
+        emit(state.copyWith(
+          status: SecurityStatus.lockedOut,
+          failedAttempts: failedAttempts,
+          isBiometricEnabled: bioEnabled,
+          errorMessage: 'Demasiados intentos fallidos. App bloqueada.',
+        ));
+      } else {
+        emit(state.copyWith(
+          status: SecurityStatus.unauthenticated,
+          failedAttempts: failedAttempts,
+          isBiometricEnabled: bioEnabled,
+        ));
+      }
     } catch (_) {
       emit(state.copyWith(status: SecurityStatus.error));
     }
@@ -58,7 +70,10 @@ class SecurityBloc extends Bloc<SecurityEvent, SecurityState> {
     emit(state.copyWith(status: SecurityStatus.loading));
     try {
       await _securityVault.setPin(event.pin);
-      emit(state.copyWith(status: SecurityStatus.authenticated));
+      emit(state.copyWith(
+        status: SecurityStatus.authenticated,
+        failedAttempts: 0,
+      ));
     } catch (_) {
       emit(state.copyWith(
         status: SecurityStatus.error,
@@ -77,12 +92,13 @@ class SecurityBloc extends Bloc<SecurityEvent, SecurityState> {
     try {
       final isValid = await _securityVault.verifyPin(event.pin);
       if (isValid) {
+        await _securityVault.resetFailedAttempts();
         emit(state.copyWith(
           status: SecurityStatus.authenticated,
           failedAttempts: 0,
         ));
       } else {
-        final newFailedAttempts = state.failedAttempts + 1;
+        final newFailedAttempts = await _securityVault.incrementFailedAttempts();
         if (newFailedAttempts >= 5) {
           emit(state.copyWith(
             status: SecurityStatus.lockedOut,
@@ -106,12 +122,18 @@ class SecurityBloc extends Bloc<SecurityEvent, SecurityState> {
     SecurityAuthenticateWithBiometrics event,
     Emitter<SecurityState> emit,
   ) async {
+    if (state.status == SecurityStatus.lockedOut) return;
+
     try {
       final authenticated = await _securityVault.authenticateWithBiometrics(
         reason: 'Autentícate para acceder a Serenti',
       );
       if (authenticated) {
-        emit(state.copyWith(status: SecurityStatus.authenticated));
+        await _securityVault.resetFailedAttempts();
+        emit(state.copyWith(
+          status: SecurityStatus.authenticated,
+          failedAttempts: 0,
+        ));
       }
     } catch (_) {
       // Fallback to manual PIN entry happens naturally by not changing state to authenticated

@@ -36,8 +36,13 @@ class PetMoodUpdated extends PetEvent {
   final MiloMood mood;
 
   @override
-  List<Object?> get props => [mood];
-}
+  List<Object> get props => [mood];
+  }
+
+  class PetInteracted extends PetEvent {
+  const PetInteracted();
+  }
+
 
 class PetWatchMoodChanges extends PetEvent {
   const PetWatchMoodChanges();

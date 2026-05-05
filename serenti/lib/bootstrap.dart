@@ -30,7 +30,7 @@ class AppBlocObserver extends BlocObserver {
   }
 }
 
-Future<void> bootstrap(FutureOr<Widget> Function(LegalRepository, SecurityVault, UserSettingsRepository, PetRepository, Phq9Repository, SensorRepository, InferenceRepository) builder) async {
+Future<void> bootstrap(FutureOr<Widget> Function(LegalRepository, SecurityVault, UserSettingsRepository, PetRepository, Phq9Repository, SensorRepository, InferenceRepository, IsarDatabase) builder) async {
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
@@ -88,6 +88,7 @@ Future<void> bootstrap(FutureOr<Widget> Function(LegalRepository, SecurityVault,
     petRepository, 
     phq9Repository, 
     sensorRepository,
-    inferenceRepository
+    inferenceRepository,
+    isarDatabase,
   ));
 }

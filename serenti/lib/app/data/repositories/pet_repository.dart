@@ -46,7 +46,10 @@ class PetRepository {
       if (settings != null) {
         settings.petCustomized = true;
         // Remove from pending steps if exists
-        settings.pendingSteps.remove('personalization');
+        final updatedSteps = List<String>.from(settings.pendingSteps);
+        if (updatedSteps.remove('personalization')) {
+          settings.pendingSteps = updatedSteps;
+        }
         await isar.userSettings.put(settings);
       }
     });

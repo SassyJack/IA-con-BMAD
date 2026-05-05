@@ -62,7 +62,10 @@ class HabitatPage extends StatelessWidget {
                     },
                   ),
                   const Spacer(),
-                  const PetAvatar(size: 150),
+                  GestureDetector(
+                    onTap: () => context.read<PetBloc>().add(const PetInteracted()),
+                    child: const PetAvatar(size: 150),
+                  ),
                   const SizedBox(height: 16),
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 32),
@@ -91,7 +94,7 @@ class HabitatPage extends StatelessWidget {
                         const SizedBox(height: 16),
                         ElevatedButton(
                           onPressed: () {
-                            // Future interaction logic
+                            context.read<PetBloc>().add(const PetInteracted());
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF4CAF50),

@@ -22,6 +22,7 @@ class SecurityVault {
   static const _encryptionKeyName = 'serenti_database_key';
   static const _pinHashName = 'serenti_pin_hash';
   static const _biometricEnabledName = 'serenti_biometric_enabled';
+  static const _failedAttemptsName = 'serenti_failed_attempts';
   static const _pinSalt = 'serenti_security_salt_2026';
 
   /// Returns the encryption key for Isar database.
@@ -47,6 +48,7 @@ class SecurityVault {
     final bytes = utf8.encode(pin + _pinSalt);
     final digest = sha256.convert(bytes);
     await _storage.write(key: _pinHashName, value: digest.toString());
+    await resetFailedAttempts();
   }
 
   /// Checks if a PIN has been set.
@@ -63,6 +65,25 @@ class SecurityVault {
     final bytes = utf8.encode(pin + _pinSalt);
     final providedHash = sha256.convert(bytes).toString();
     return storedHash == providedHash;
+  }
+
+  /// Returns the number of failed attempts stored.
+  Future<int> getFailedAttempts() async {
+    final stored = await _storage.read(key: _failedAttemptsName);
+    return int.tryParse(stored ?? '0') ?? 0;
+  }
+
+  /// Increments and stores the number of failed attempts.
+  Future<int> incrementFailedAttempts() async {
+    final current = await getFailedAttempts();
+    final next = current + 1;
+    await _storage.write(key: _failedAttemptsName, value: next.toString());
+    return next;
+  }
+
+  /// Resets the failed attempts counter to zero.
+  Future<void> resetFailedAttempts() async {
+    await _storage.write(key: _failedAttemptsName, value: '0');
   }
 
   /// Authenticates the user using biometrics.

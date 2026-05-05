@@ -93,6 +93,7 @@ void main() {
     testWidgets('renders LockScreen when PIN is set', (tester) async {
       when(() => securityVault.hasPinSet()).thenAnswer((_) async => true);
       when(() => securityVault.isBiometricEnabled()).thenAnswer((_) async => false);
+      when(() => securityVault.getFailedAttempts()).thenAnswer((_) async => 0);
 
       await tester.pumpWidget(App(
         legalRepository: legalRepository,

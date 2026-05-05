@@ -17,7 +17,7 @@ class RiskCubit extends Cubit<RiskState> {
   final IsarDatabase _isarDatabase;
   StreamSubscription<List<MiloState>>? _miloStateSubscription;
 
-  void checkRisk() async {
+  Future<void> checkRisk() async {
     emit(state.copyWith(status: RiskStatus.loading));
     try {
       final isHighRisk = await _inferenceRepository.evaluateRisk();
